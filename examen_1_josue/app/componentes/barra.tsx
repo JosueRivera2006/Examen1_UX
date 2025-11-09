@@ -5,7 +5,6 @@ export default function BarraNavegacion() {
         <a className="navbar-brand me-5 fs-4" href="#">
           <img src="/netflix-text.png" style={{ width: "100px" }} alt="Netflix" />
         </a>
-        
         <button
           className="navbar-toggler"
           type="button"
@@ -17,7 +16,6 @@ export default function BarraNavegacion() {
         >
           <span className="navbar-toggler-icon"></span>
         </button>
-        
         <div className="navbar-collapse" id="navbarNavAltMarkup">
           <div className="navbar-nav">
             <a className="nav-link text-white" href="#">Inicio</a>
@@ -38,7 +36,7 @@ export default function BarraNavegacion() {
             <img src="/notificaciones.png" style={{ width: "40px"}} alt="Notificaciones" />
           </a>
           <a className="navbar-brand" href="#">
-            <img src="/perfil.png" style={{ width: "40px"}} alt="Perfil" />
+            <img src="/perfil.png" style={{ width: "40px", borderRadius: "10px"}} alt="Perfil" />
           </a>
         </div>
       </div>

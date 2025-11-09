@@ -10,7 +10,7 @@ export default function Parte_carrusel({
 }: Parametros) {
   return (
     <div className="carousel-item">
-      <img src={direccion_imagen} style={{width:'100%', height:'40%'}}/>
+      <img src={direccion_imagen} style={{width:'100%', height:'30vh'}}/>
       <div className="carousel-caption d-none d-md-block">
         <div style={{width:'20%', height:'80%'}}>
         <h5>{titulo}</h5>

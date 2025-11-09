@@ -2,26 +2,54 @@ import Image from "next/image";
 import Parte_carrusel from "./componentes/moleculas/contenido_carrusel";
 import BotonSimple from "./componentes/atomos/boton";
 import BarraNavegacion from "./componentes/barra";
+import Content from "./componentes/atomos/content";
 export default function Home() {
   return (
     <div>
     <div>
       <BarraNavegacion/>
-      <div>
-          <video autoPlay muted loop className="w-100 h">
+      <div className="carousel slide carousel-fade">
+          <video autoPlay muted loop className="w-100">
             <source src="/squid-game-trailer.mp4" type="video/mp4" />
           </video>
           <div className="carousel-caption ">
             <div style={{textAlign:'left', width:'50%', height:'auto', marginLeft:'-15%', marginTop:'-60%'}}>
               <h5><img src="logo1.png" /></h5>
-              <p style={{marginLeft:'5%'}}>Una serie surcoreana donde personas con problemas económicos participan en juegos
+              <p style={{marginLeft:'5%', fontSize:'1.5vw'}}>Una serie surcoreana donde personas con problemas económicos participan en juegos
                 infantiles mortales para ganar un gran premio en efectivo. 
                 Combina drama, suspenso y crítica social.</p>
-              
               <BotonSimple desc="Reproducir" icono="reproducir_video.png"/>
               <BotonSimple desc="Más información" icono="https://cdn-icons-png.flaticon.com/512/0/472.png"/>
+
             </div>
           </div>
+      </div>
+      {/*<Content enlace="https://d2a5isokysfowx.cloudfront.net/wp-content/uploads/2021/11/Prueba-Tecnica.png"/>*/}
+      <div style={{marginLeft:'4%'}}>
+        <div>
+           <h1 className="tituloSeccion">Favoritos del público</h1>
+        </div>
+        <div>
+           <h1 className="tituloSeccion">Las 10 series más populares en Honduras hoy</h1>
+        </div>
+        <div id="series">
+           <h1 className="tituloSeccion">Series</h1>
+        </div>
+        <div id="peliculas">
+           <h1 className="tituloSeccion">Películas</h1>
+        </div>
+        <div id="novedades">
+           <h1 className="tituloSeccion">Novedades populares</h1>
+        </div>
+        <div>
+           <h1 className="tituloSeccion">Continuar viendo</h1>
+        </div>
+        <div id="lista">
+           <h1 className="tituloSeccion">Mi lista</h1>
+        </div>
+        <div id="idiomas">
+           <h1 className="tituloSeccion">Explora por idiomas</h1>
+        </div>
       </div>
       <div
         id="carouselExampleIndicators"

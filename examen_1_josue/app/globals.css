@@ -30,3 +30,22 @@ body {
   font-weight: bolder;
   text-decoration: none;
 }
+
+.tituloSeccion {
+  color: white;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 600;
+  font-size: 2vw;
+  letter-spacing: 0.5px;
+  line-height: 1.2;
+  text-size-adjust: 100%;
+}
+
+.informacionFooter {
+  color:grey;
+  font-size: 13px;
+}
+.copyright {
+  color:grey;
+  font-size: 11px;
+}

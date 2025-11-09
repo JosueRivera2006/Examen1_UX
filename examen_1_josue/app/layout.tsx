@@ -40,6 +40,36 @@ export default function RootLayout({
         <script
           src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         />
+        <footer>
+          <div style={{width:"60%", marginLeft:"25%", marginTop:"10%"}}>
+            <div>
+              <img src="redes.png" style={{ width: '189px', height: 'auto' }} />
+              <div className="informacionFooter row align-items-start">
+                <div className="col">
+                  <p>Audio descriptivo</p>
+                  <p>Relaciones con inversionistas</p>
+                  <p>Avisos legales</p>
+                </div>
+                <div className="col">
+                  <p>Centro de ayuda</p>
+                  <p>Empleo</p>
+                  <p>Preferencias de cookies</p>
+                </div>
+                <div className="col">
+                  <p>Tarjetas de regalo</p>
+                  <p>Términos de uso</p>
+                  <p>Información corporativa</p>
+                </div>
+                <div className="col">
+                  <p>Prensa</p>
+                  <p>Privacidad</p>
+                  <p>Contáctanos</p>
+                </div>
+              </div>
+              <p className="copyright">© 1997-2025 Netflix, Inc.</p>
+            </div>
+          </div>
+        </footer>
       </body>
     </html>
   );
