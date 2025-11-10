@@ -3,185 +3,83 @@ import Parte_carrusel from "./componentes/moleculas/contenido_carrusel";
 import BotonSimple from "./componentes/atomos/boton";
 import BarraNavegacion from "./componentes/barra";
 import Content from "./componentes/atomos/content";
+import Catalog from "./componentes/organismo/carrusel";
+function obtenerEnlaces() {
+  let todos_enlaces = [
+    "https://occ-0-2668-116.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABdxTFgwVZnsstVJpWDg9GxFzfFEUdWzudowzpN_nd8exAzMduynydFOtg5vQpa_cjX9J7CJLUXWv7SiSjGggvwcac25L_YAn2rw.webp?r=4c8",
+    "https://occ-0-2668-116.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABbvMA1k_7y8ItYnMkjgnegwQDnv_cO0JIvL4qhrfwPoo6G-vuIeQU7WK0ADPd3sq6-N-cAh8C6ZIXhZmaXoXXhVxTdd8rfDcu2r49gjVhs_kzxclJzu4sBKo9PSh4DYj7uO4mvB2Ym419WfhH52UIjnWIhxt818V4RE.webp?r=864",
+    "https://occ-0-2668-116.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABVfAe8uGcd34XCvKxyd4qJiBfgrf3oPIxLB43yELO-LIKopEOME0V6zJBRdPyzA5hKvM21zx9m0xOgk51EuJtmNm8iAZ6eIFVIxmIgtYmobUNTbf1Z1h8-UQoKCI2PjPJBWBWOst75rNTwvz452e84Y4sseQawSyp-sBCABVheESmaN8Ap7t1G4lXAkDoeXUPA-9_4rofL5_2K7bqwsEPLx3j2atVa10mAE0nQ935A.jpg?r=b1f",
+    "https://occ-0-2668-116.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABYLPxkFEgePEXtfbgd2T566zOsN_vjvQTmrHz4AgePQTy_93jwdtKBEuSa4ySU8j__Jcuq2IFCM2v-uf5SxV91rgYO8nBHqnwIrvyFNZ2r3x_fwsZhR3jWIKcsvfm2q7TJUD6-jqiDSWmqm2jiHeNLuDzEEAHdATiDIi2MtTEJNZ9Q.jpg?r=8de",
+    "https://occ-0-2668-116.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABZlSABNqh8ZOWmz3PHe0vfv1Zr7OBNHm9bQu9Ou2cyuHszgjUxi71tPAe-KPsEWNp0iacqQXjTYBUtGFxO58Zteu0s4ioOzyscM.jpg?r=846",
+    "https://occ-0-2668-116.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABWE-qBxIDOp9LFgaqxjvVfbaAXLLqzgZwiwXr0HgkwLsysda1Ucvkg4VPQ9OCD8JyZ9Kj5lJdz5FRDYIi-VTrKLvCyaKuEgY5pc.jpg?r=649",
+    "https://occ-0-2668-116.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABR6eeG3SgyXwZCeMzAyNBGMEQIS55YsXnrCFoaGMl-Bd0C3WOUhOdbOVAN-kXI5Skd8zAahcfZZut0Ma6HO1jmHJctvPAVKXMwc.jpg?r=cd3",
+    "https://occ-0-2668-116.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABda8frnBSk0OQjKQxrjJaM0Ob1J_55QbRd9IFQZUq-zdyDx90EqbbCUoXc0eUHEv8OgyBgaruSkjtHS2uhJpckJNNChwTvTKIGI.jpg?r=210",
+    "https://occ-0-2668-116.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABVjXkAOXQkYD670HhsUGS8EDPOnGKx1dhfLurpZOZT84rcqbDQPsWbjHhzTI7JbZPfAxZd9YhJpz8lvBJxVKjQqZLderCwPqsqM.jpg?r=58c",
+    "https://occ-0-2668-116.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABbcWK39F0w1mtDgyB-yNgY2eISRXd0I6taP3Ykxiz-J4GRH8poJOb8CThP4zXTSsBY6c90WLnzoA5BlCCS0GH0ysL99Ph1kBBt4.jpg?r=c62"
+  ];
+  let random_enlaces = [];
+  for (let i = 0; i < 25; i++) {
+    let aleatorio = Math.floor(Math.random() * todos_enlaces.length);
+    random_enlaces.push(todos_enlaces[aleatorio]);
+  }
+  return random_enlaces;
+}
 export default function Home() {
   return (
     <div>
-    <div>
-      <BarraNavegacion/>
-      <div className="carousel slide carousel-fade">
-          <video autoPlay muted loop className="w-100">
-            <source src="/squid-game-trailer.mp4" type="video/mp4" />
-          </video>
-          <div className="carousel-caption ">
-            <div style={{textAlign:'left', width:'50%', height:'auto', marginLeft:'-15%', marginTop:'-60%'}}>
-              <h5><img src="logo1.png" /></h5>
-              <p style={{marginLeft:'5%', fontSize:'1.5vw'}}>Una serie surcoreana donde personas con problemas económicos participan en juegos
-                infantiles mortales para ganar un gran premio en efectivo. 
-                Combina drama, suspenso y crítica social.</p>
-              <BotonSimple desc="Reproducir" icono="reproducir_video.png"/>
-              <BotonSimple desc="Más información" icono="https://cdn-icons-png.flaticon.com/512/0/472.png"/>
-
-            </div>
-          </div>
-      </div>
-      {/*<Content enlace="https://d2a5isokysfowx.cloudfront.net/wp-content/uploads/2021/11/Prueba-Tecnica.png"/>*/}
-      <div style={{marginLeft:'4%'}}>
-        <div>
-           <h1 className="tituloSeccion">Favoritos del público</h1>
-        </div>
-        <div>
-           <h1 className="tituloSeccion">Las 10 series más populares en Honduras hoy</h1>
-        </div>
-        <div id="series">
-           <h1 className="tituloSeccion">Series</h1>
-        </div>
-        <div id="peliculas">
-           <h1 className="tituloSeccion">Películas</h1>
-        </div>
-        <div id="novedades">
-           <h1 className="tituloSeccion">Novedades populares</h1>
-        </div>
-        <div>
-           <h1 className="tituloSeccion">Continuar viendo</h1>
-        </div>
-        <div id="lista">
-           <h1 className="tituloSeccion">Mi lista</h1>
-        </div>
-        <div id="idiomas">
-           <h1 className="tituloSeccion">Explora por idiomas</h1>
-        </div>
-      </div>
-      <div
-        id="carouselExampleIndicators"
-        className="carousel slide carousel-fade"
-        data-bs-ride="carousel"
-        data-bs-interval="4000"
-      >
-        <div
-          className="carousel-indicators"
-          style={{ marginLeft: "70%", width: "25%" }}
-        >
-          <button
-            type="button"
-            data-bs-target="#carouselExampleIndicators"
-            data-bs-slide-to="0"
-            className="active"
-            aria-current="true"
-            aria-label="Slide 1"
-          ></button>
-          <button
-            type="button"
-            data-bs-target="#carouselExampleIndicators"
-            data-bs-slide-to="1"
-            aria-label="Slide 2"
-          ></button>
-          <button
-            type="button"
-            data-bs-target="#carouselExampleIndicators"
-            data-bs-slide-to="2"
-            aria-label="Slide 3"
-          ></button>
-          <button
-            type="button"
-            data-bs-target="#carouselExampleIndicators"
-            data-bs-slide-to="3"
-            aria-label="Slide 4"
-          ></button>
-          <button
-            type="button"
-            data-bs-target="#carouselExampleIndicators"
-            data-bs-slide-to="4"
-            aria-label="Slide 5"
-          ></button>
-          <button
-            type="button"
-            data-bs-target="#carouselExampleIndicators"
-            data-bs-slide-to="5"
-            aria-label="Slide 6"
-          ></button>
-          <button
-            type="button"
-            data-bs-target="#carouselExampleIndicators"
-            data-bs-slide-to="6"
-            aria-label="Slide 7"
-          ></button>
-        </div>
-        <div className="carousel-inner">
-          <div className="carousel-item active">
-            <img src="logo1.png" />
-            <div className="carousel-caption d-none d-md-block">
-              <div style={{width:'50%', height:'40%'}}>
-              <h5><img src="logo1.png" /></h5>
-              <p>Una serie surcoreana donde personas con problemas económicos participan en juegos
-              infantiles mortales para ganar un gran premio en efectivo. 
-              Combina drama, suspenso y crítica social.</p>
+      <div>
+        <BarraNavegacion/>
+        <div className="carousel slide carousel-fade">
+            <video autoPlay muted loop className="w-100">
+              <source src="/squid-game-trailer.mp4" type="video/mp4" />
+            </video>
+            <div className="carousel-caption ">
+              <div style={{textAlign:'left', width:'50%', height:'auto', marginLeft:'-15%', marginTop:'-60%'}}>
+                <h5><img src="logo1.png" /></h5>
+                <p style={{marginLeft:'5%', fontSize:'1.5vw'}}>Una serie surcoreana donde personas con problemas económicos participan en juegos
+                  infantiles mortales para ganar un gran premio en efectivo. 
+                  Combina drama, suspenso y crítica social.</p>
+                <BotonSimple desc="Reproducir" icono="reproducir_video.png"/>
+                <BotonSimple desc="Más información" icono="https://cdn-icons-png.flaticon.com/512/0/472.png"/>
               </div>
+              
             </div>
-          </div>
-          <Parte_carrusel
-            direccion_imagen="https://dnm.nflximg.net/api/v6/BvVbc2Wxr2w6QuoANoSpJKEIWjQ/AAAAQahlEjH_3LBJyRq0T9E9zrVF4iz5ivFzxkEGZMwgJFdIsfz8dlyV0B1olxJRDMzv_Ppa9fZwwXVZTdpAr2q1wE53b40fjH6srkqgt8_eNUiCry5KFhJiPPRWWqv-pwRIlOqBZv0-S3hEuTJn1ZO_ly3qOU8.jpg?r=bce"
-            titulo=""
-            info="Continuación de la saga Karate Kid, sigue la rivalidad entre Johnny Lawrence 
-            y Daniel LaRusso décadas después. Mezcla acción, humor y lecciones de vida mientras 
-            entrenan a nuevas generaciones de karatekas."
-          />
-          <Parte_carrusel
-            direccion_imagen="https://www.latercera.com/resizer/v2/PQP6LDX7UJB6RO4TLJUQCLDP6Q.jpg?auth=a3c75bd5e8aa1bc4d5c5e139450f8b4f48b4b947e657414e58825ffb50227e1d&smart=true&width=800&height=450&quality=70"
-            titulo=""
-            info="Miniserie sobre una joven prodigio del ajedrez que lucha contra la adicción y los 
-            problemas personales mientras asciende en el mundo competitivo del ajedrez internacional."
-          />
-          <Parte_carrusel
-            direccion_imagen="https://media.gq.com.mx/photos/66ac00abddaa40819fe0b600/16:9/w_2560%2Cc_limit/Demon_Slayer_quinta_temporada.jpg"
-            titulo=""
-            info="Anime que sigue a Tanjiro, un joven que lucha contra demonios después de que su familia es asesinada, 
-            mientras busca una cura para su hermana Nezuko, convertida en demonio."
-          />
-          <Parte_carrusel
-            direccion_imagen="https://assets-prd.ignimgs.com/2022/07/13/black-mirror-1657737549651.jpeg"
-            titulo=""
-            info="Serie de antología que explora los lados oscuros de la tecnología y la sociedad moderna. 
-            Cada episodio es independiente y plantea escenarios distópicos y reflexivos sobre el futuro."
-          />
-          <Parte_carrusel
-            direccion_imagen="https://occ-0-8407-2218.1.nflxso.net/dnm/api/v6/9pS1daC2n6UGc3dUogvWIPMR_OU/AAAABaa2DQ-YW_kqni6mNrUk8JpN7dXDVIdwtNDCDB1L0JooaOrXRewP6TgvNFDrm909BFpi6aoFqi4lCDp0EbeaSTq_bBZt3Az-9-IBlz4Ppl72nsZuzlw4htkIHA.jpg?r=916"
-            titulo=""
-            info="Serie animada basada en el universo de League of Legends, que narra el origen de personajes como 
-            Vi y Jinx en la ciudad de Piltover y Zaun, explorando conflictos sociales, familia y tecnología."
-          />
-          <Parte_carrusel
-            direccion_imagen="https://occ-0-8407-2218.1.nflxso.net/dnm/api/v6/6AYY37jfdO6hpXcMjf9Yu5cnmO0/AAAABbSgv1dDgUpXTDNz6i2tus0qkwMdlkzEV_AdhUVxxIc4EVKTyy-cxtKoSF3O2LjPhoJchs55PbxsQx1Uninvc4_dMz8PmRru0Q6q.jpg?r=7ea"
-            titulo=""
-            info="Película animada que introduce múltiples versiones de Spider-Man de distintos universos. 
-            Miles Morales aprende a ser Spider-Man mientras trabaja junto a otros héroes para salvar su realidad."
-          />
         </div>
-        <button
-          className="carousel-control-prev"
-          type="button"
-          data-bs-target="#carouselExampleIndicators"
-          data-bs-slide="prev"
-        >
-          <span
-            className="carousel-control-prev-icon"
-            aria-hidden="true"
-          ></span>
-          <span className="visually-hidden">Anterior</span>
-        </button>
-        <button
-          className="carousel-control-next"
-          type="button"
-          data-bs-target="#carouselExampleIndicators"
-          data-bs-slide="next"
-        >
-          <span
-            className="carousel-control-next-icon"
-            aria-hidden="true"
-          ></span>
-          <span className="visually-hidden">Siguiente</span>
-        </button>
+        <div style={{marginLeft:'4%'}}>
+          <div>
+            <h1 className="tituloSeccion">Favoritos del público</h1>
+            <Catalog id="favoritos" enlaces={obtenerEnlaces()}/>
+          </div>
+          <div style={{marginTop:"5%"}}>
+            <h1 className="tituloSeccion">Las series más populares en Honduras hoy</h1>
+            <Catalog id="populares" enlaces={obtenerEnlaces()}/>
+          </div>
+          <div id="series" style={{marginTop:"5%"}}>
+            <h1 className="tituloSeccion">Series</h1>
+            <Catalog id="ser" enlaces={obtenerEnlaces()}/>
+          </div>
+          <div id="peliculas" style={{marginTop:"5%"}}>
+            <h1 className="tituloSeccion">Películas</h1>
+            <Catalog id="pelis" enlaces={obtenerEnlaces()}/>
+          </div>
+          <div id="novedades" style={{marginTop:"5%"}}>
+            <h1 className="tituloSeccion">Novedades populares</h1>
+            <Catalog id="novedades_pop" enlaces={obtenerEnlaces()}/>
+          </div>
+          <div style={{marginTop:"5%"}}>
+            <h1 className="tituloSeccion">Continuar viendo</h1>
+            
+          </div>
+          <div id="lista" style={{marginTop:"5%"}}>
+            <h1 className="tituloSeccion">Mi lista</h1>
+            
+          </div>
+          <div id="idiomas" style={{marginTop:"5%"}}>
+            <h1 className="tituloSeccion">Explora por idiomas</h1>
+            <Catalog id="explorando" enlaces={obtenerEnlaces()}/>
+          </div>
+        </div>
       </div>
-    </div>
     
     </div>
   );

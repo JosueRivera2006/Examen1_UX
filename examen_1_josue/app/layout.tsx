@@ -43,7 +43,7 @@ export default function RootLayout({
         <footer>
           <div style={{width:"60%", marginLeft:"25%", marginTop:"10%"}}>
             <div>
-              <img src="redes.png" style={{ width: '189px', height: 'auto' }} />
+              <img src="redes.png" style={{ width: '189px', height: 'auto', marginBottom:"5%"}} />
               <div className="informacionFooter row align-items-start">
                 <div className="col">
                   <p>Audio descriptivo</p>
