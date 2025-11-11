@@ -4,8 +4,10 @@ interface Valores {
 }
 export default function Content({enlace}:Valores) {
     return (
-    <button>
-        <img src={enlace} style={{borderRadius:"2px"}}/>
-    </button>
+    <a href="https://www.netflix.com" target="_blank">
+        <button>
+            <img src={enlace} style={{borderRadius:"2px"}}/>
+        </button>
+    </a>
     );
 }
