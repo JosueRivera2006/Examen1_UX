@@ -4,6 +4,14 @@ import BarraNavegacion from "./componentes/barra";
 import Content from "./componentes/atomos/content";
 import Catalog from "./componentes/organismo/carrusel";
 import ContenidoVisto from "./componentes/moleculas/contenidoVisto";
+function seEncuentra(lista:number[], num: number) {
+  for (let i = 0; i < lista.length; i++) {
+    if (lista[i] === num) {
+      return true;
+    }
+  }
+  return false;
+}
 function obtenerEnlaces() {
     let todos_enlaces = [
       "https://occ-0-2668-116.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABdxTFgwVZnsstVJpWDg9GxFzfFEUdWzudowzpN_nd8exAzMduynydFOtg5vQpa_cjX9J7CJLUXWv7SiSjGggvwcac25L_YAn2rw.webp?r=4c8",
@@ -15,13 +23,38 @@ function obtenerEnlaces() {
       "https://occ-0-2668-116.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABR6eeG3SgyXwZCeMzAyNBGMEQIS55YsXnrCFoaGMl-Bd0C3WOUhOdbOVAN-kXI5Skd8zAahcfZZut0Ma6HO1jmHJctvPAVKXMwc.jpg?r=cd3",
       "https://occ-0-2668-116.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABda8frnBSk0OQjKQxrjJaM0Ob1J_55QbRd9IFQZUq-zdyDx90EqbbCUoXc0eUHEv8OgyBgaruSkjtHS2uhJpckJNNChwTvTKIGI.jpg?r=210",
       "https://occ-0-2668-116.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABVjXkAOXQkYD670HhsUGS8EDPOnGKx1dhfLurpZOZT84rcqbDQPsWbjHhzTI7JbZPfAxZd9YhJpz8lvBJxVKjQqZLderCwPqsqM.jpg?r=58c",
-      "https://occ-0-2668-116.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABbcWK39F0w1mtDgyB-yNgY2eISRXd0I6taP3Ykxiz-J4GRH8poJOb8CThP4zXTSsBY6c90WLnzoA5BlCCS0GH0ysL99Ph1kBBt4.jpg?r=c62"
-
+      "https://occ-0-2668-116.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABbcWK39F0w1mtDgyB-yNgY2eISRXd0I6taP3Ykxiz-J4GRH8poJOb8CThP4zXTSsBY6c90WLnzoA5BlCCS0GH0ysL99Ph1kBBt4.jpg?r=c62",
+      "https://occ-0-2668-116.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABQ41tfpS9j_xkFEZsFGCBEZeDxNJ8BxFjPZdC2_Gz6TnBA057gWxcSnAXNSLjNkhwlr4PRf2X_Y87TuKbOOMWRVGTUAAv8aVS5c.jpg?r=dab",
+      "https://occ-0-2668-116.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABbqfwcyf5INUoqIOAhfvAtCiTkhZ9XxIhJgqEhDRoP_U0xFbxFStOO0wLQpthGW5dCmDtkwsIDILCCdNlhBAvkpspcErPnQ3fDY.jpg?r=a71",
+      "https://occ-0-2668-116.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABTao7tFreXj2ncdQv8FNcg9iNHpscPIgkJAAXdAoiR7k6_rdjavQhLAioW8_lsyFVX7Lv0Kfpx6YLOSmfAXT-Iim2EcyZuwXP3fjsvQ9NFuXyAZ_y0-UyOwP0zC8rdrrFVvNwm0e_P79dIKjFJxysSQbcwejRbV33Lo.jpg?r=23f",
+      "https://occ-0-2668-116.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABWikNhfSTpH2vvbXpJc4mtsPDuEaOOYtB3wl3RKEm1pehXaZC_NGcbtnQVqNIv8cjpTAlsK8kpFWxtzH5J91f0cc36DIwrCxkMA.jpg?r=726",
+      "https://occ-0-2668-116.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABYq-V-iGzqUWAuGziYGIyAmfdp15xSdK2YLOmxp8m60FFXv6FxuPAI6NpZ7_0zeqaXb-J1Ow2rT82XJBad-W56bBsXzp_jYY75I.jpg?r=3e7",
+      "https://occ-0-2668-116.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABdhY7yrFm_5Mk9O8TGZnJFYZber_0ENiqke3dMOMaI50rax-mA9XL4CLKXI0bTRPbsETb0_PWjD6kQeYauvoYasTbRY5gTL1TNo.jpg?r=978",
+      "https://occ-0-2668-116.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABaV87jTaRr2BdHRGnDjcSTgHwzlXpyofKBMJqFlel--3UuQaKPnThmiEuq-N9Q4YsQd9Jv_cWpy0sC4cbjLpxuHZq2L9Y3BEXw8.webp?r=c98",
+      "https://occ-0-2668-116.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABRrlBDhvVAVfXBWeehOhsg_4g8OYUIvI9l4g5AWJtu48-zqMmk9c4GNrGk5eGjuZxyEr-KLQXJbjBG1fYdRXLwdOyXPTYKA6IaIZgPgz9fliWMJ0MhBMi5EIutH35pLaBN3RPgqumJpBvTS8KEDo6UQHyySCklKnsCs.webp?r=16b",
+      "https://occ-0-2668-116.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABYrqTV8jU9B9yDpLDj2I_dbulz5mXqx57RkUB7wD5VpYMvtH8JSonwoWhk3xPN-Ss290IsQNhohSpiHp7ukwX43G0WoAJeSRGTs.jpg?r=012",
+      "https://occ-0-2668-116.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABRhcqtKSjO8pntJjTOuwFXi-7yuPPZeFkWQnHCohkDL7v1t7X_jjUGR3VL-KepJI7_URTDQhX5gJGWoHfp5TtBas7jwm9prBo64.webp?r=e4f",
+      "https://occ-0-2668-116.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABRVejCAR3f3Bp44fjG6MZUfABK8ZGhxT3fOB1W_ks4jXYl-rcZhvmHV1Y5gYEU8Snwtsm9htmi8Bjuae-fc7TJiadhSpT256yM4.jpg?r=471",
+      "https://occ-0-2668-116.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABeeA_W65wBQbOnFR3UOHdLEgw39tVSu1tx9bma3gQViY4EA-44RGaSJeq8uj7It50myxRwy0W1kF-TV5kjVgXoBI7IqSzK_ansE.jpg?r=f25",
+      "https://occ-0-2668-116.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABRVkQtc4vhQ_fCTo1OMqKOhAbF8Sd8nDJY2QEqPlR1zoEVziSkTWb18lNjpOrUXvfm7Dxgf488sox7jFD9ST-FlwjsHPObY2NfY.jpg?r=970",
+      "https://occ-0-2668-116.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABVX0FUnpmWoJlx4UL3w4zmoBUQGTA9ILWoMzb7NNR5FMfxGu2CgMOXSZ9en9W2gbsG3uXZgJSbRlBH1021PGxOk-JYWcDignsKI.jpg?r=8ca",
+      "https://occ-0-2668-116.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABTjTNmB_oaWMMzLb2-xH2qTMWPI2YnV7a1XoIl0Y71SnUKRxnw68snPOuvfD6u-hXnW_U8DldIrT0TKQuhdmds5qzaowZNfOf5M.jpg?r=28f",
+      "https://occ-0-2668-116.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABafEkwgV-ddaqb-IzfVJPCI7Kc4kSddq7NjUsnrOePu5t6IicZvd_lkxEjYiQkQ2sIpsVBC7Gk653tPkWAy9X9ef9dg3q7LDLpg.webp?r=c30",
+      "https://occ-0-2668-116.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABW57ZadqOnI2EgoF5PyjWGxItt6ml_ZR5t37yZYzLUe_NZMxronSYLGG3iYJaTzFo3HZJE-fiuwtrXbArVDthxj9yE4ZcG22o0M.webp?r=7ec",
+      "https://occ-0-2668-116.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABbJAGPizAy0qdkpHxiCmKoqtbnV2XHTmGZhQrjdjmCAuC3W0tVJrO3MX8vauEpK1Ls6fosEPMfREYzabQ-wPIXCiIZOx7zyidBM.webp?r=9de",
+      "https://occ-0-2668-116.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABafCk0pcyV7C4bWPrAuUgepZZXuT_qq6L0q0h-UPv3HP4ZtkOjk6sWm5dgO5pREcEEi_VtnhpbphhNVlv_HAiLFc2j7pKaeyzU8.webp?r=f0e",
+      "https://occ-0-2668-116.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABRoFFXvEOifi0Sq5IlJ2gYjBl7JXgmhhc5I89rYkne2ml8gFDMLG7TIHfkNtOU0Y5nZTLOpjYcb3nHHJxgEAz5gIAmuuxH-CLxs.webp?r=53d"
     ];
     let random_enlaces = [];
-    for (let i = 0; i < 25; i++) {
+    let aleatorios:number[] = [];
+    let posContador = 0
+    while (posContador < 25) {
       let aleatorio = Math.floor(Math.random() * todos_enlaces.length);
-      random_enlaces.push(todos_enlaces[aleatorio]);
+      if(!seEncuentra(aleatorios, aleatorio)) { //evitar que aparezca la misma imagen en la misma fila, pero la imagen puede aparecer en distintas categorias
+        random_enlaces.push(todos_enlaces[aleatorio]);
+        aleatorios.push(aleatorio);
+        posContador++;
+      }
     }
     return random_enlaces;
   }
