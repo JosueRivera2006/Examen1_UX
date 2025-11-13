@@ -65,7 +65,7 @@ export default function Catalog({id, enlaces}:catalogoUnico) {
             <span className="carousel-control-prev-icon" style={{marginLeft:"-125%", height:"20%"}} aria-hidden="true"></span>
             <span className="visually-hidden">Anterior</span>
         </button>
-        <button className="carousel-control-next" type="button" data-bs-target={`#${id}`} data-bs-slide="next" style={{width:"3%"}}>
+        <button className="carousel-control-next" type="button" data-bs-target={`#${id}`} data-bs-slide="next" style={{width:"5%"}}>
             <span className="carousel-control-next-icon" style={{marginRight:"0%", height:"20%"}} aria-hidden="true"></span>
             <span className="visually-hidden">Siguiente</span>
         </button>

@@ -58,6 +58,7 @@ body {
   width: 100%;
   gap: 0.25%;
   scroll-behavior: smooth;
+  overflow: visible;
 }
 
 .unCambioEnEstilo {
@@ -68,4 +69,31 @@ body {
   width: 60%;
   gap: 0.25%;
   scroll-behavior: smooth;
+}
+
+.boton_gif {
+  position: relative;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.boton_gif:hover {
+  transform: scale(1.5);
+  z-index: 1000;
+}
+
+.boton_gif::before {
+  content: "";
+  position: absolute;
+  top:0; left:0; right:0; bottom:0;
+  background-image: url('https://i.pinimg.com/originals/57/28/ae/5728aef13f51223982c0b8f9d71c0aba.gif');
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity ease 1s;
+}
+
+.boton_gif:hover::before {
+  opacity: 1;
 }

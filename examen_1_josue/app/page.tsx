@@ -4,6 +4,7 @@ import BarraNavegacion from "./componentes/barra";
 import Content from "./componentes/atomos/content";
 import Catalog from "./componentes/organismo/carrusel";
 import ContenidoVisto from "./componentes/moleculas/contenidoVisto";
+import ContentMayor from "./componentes/moleculas/contentMayor";
 function seEncuentra(lista:number[], num: number) {
   for (let i = 0; i < lista.length; i++) {
     if (lista[i] === num) {
@@ -68,17 +69,18 @@ export default function Home() {
             <video autoPlay muted loop className="w-100">
               <source src="/squid-game-trailer.mp4" type="video/mp4" />
             </video>
-            <div className="carousel-caption ">
-              <div style={{textAlign:'left', width:'50%', height:'auto', marginLeft:'-15%', marginTop:'-60%'}}>
-                <h5><img src="logo1.png" /></h5>
-                <p style={{marginLeft:'5%', fontSize:'1.5vw'}}>Una serie surcoreana donde personas con problemas económicos participan en juegos
+              <div className="carousel-caption" style={{textAlign:'left', width:'100%', height:'30%', marginLeft:'-15%', marginBottom:'30%'}}>
+                <h5 style={{width:"50%"}}><img src="logo1.png" /></h5>
+                <p style={{marginLeft:'5%', fontSize:'1.5vw', width:"50%"}}>Una serie surcoreana donde personas con problemas económicos participan en juegos
                   infantiles mortales para ganar un gran premio en efectivo. 
                   Combina drama, suspenso y crítica social.</p>
                 <BotonSimple desc="Reproducir" icono="reproducir_video.png"/>
                 <BotonSimple desc="Más información" icono="https://cdn-icons-png.flaticon.com/512/0/472.png"/>
+                <button type="button" className="btn btn-outline-light btn-secondary" style={{display: 'inline-flex', marginLeft:"45%", borderRadius:"100%", alignItems: 'center', border:'none', width: "min(3vw, 50px)", height: "min(3vw, 50px)"}}>
+                  <img src="sonido_icono.png" style={{width:"100%", height: "100%", marginRight:"0.5vw"}}/>
+                </button>
+                <img style={{marginLeft:"2vw", height: "min(3vw, 50px)", width: "7vw", display: 'inline-flex'}} src="clasificacion.png"/>
               </div>
-              
-            </div>
         </div>
         <div style={{marginLeft:'4%'}}>
           <div>
@@ -87,7 +89,40 @@ export default function Home() {
           </div>
           <div style={{marginTop:"5%"}}>
             <h1 className="tituloSeccion">Las 10 series más populares en Honduras hoy</h1>
-            <Catalog id="populares" enlaces={obtenerEnlaces()}/>
+            <div id="top10" className="carousel slide" style={{marginTop:"1%"}} data-bs-touch="true">
+              <div className="carousel-indicators" style={{margin:"0", justifyContent: "flex-end" , marginBottom:"18%"}}>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              </div>
+              <div className="carousel-inner">
+                <div className="carousel-item active">
+                  <div className="estiloContenido">
+                    <ContentMayor enlace1="1.png" enlace2="https://m.media-amazon.com/images/I/71n+CmrVcrL._AC_UF894,1000_QL80_.jpg" />
+                    <ContentMayor enlace1="2.png" enlace2="https://www.findelahistoria.com/web/wp-content/uploads/2021/12/el-juego-del-calamar-squid-game-serie-mejor-poster.jpg" />
+                    <ContentMayor enlace1="3.png" enlace2="https://seriescienciaficcion.wordpress.com/wp-content/uploads/2015/02/netflix-daredevil-poster.jpg" />
+                    <ContentMayor enlace1="4.png" enlace2="https://static.posters.cz/image/350/posters/the-witcher-season-3-i177456.jpg" />
+                    <ContentMayor enlace1="5.png" enlace2="https://i.redd.it/aw62ganh7o801.jpg" />
+                  </div>
+                </div>
+                <div className="carousel-item">
+                  <div className="estiloContenido">
+                    <ContentMayor enlace1="6.png" enlace2="https://cineycine.com/wp-content/uploads/2021/01/lupin-netflix-poster.jpg" />
+                    <ContentMayor enlace1="7.png" enlace2="https://www.elheraldo.hn/binrepository/1200x1771/0c0/0d0/none/45933/TQNN/10_11527071_20250731131654.jpg" />
+                    <ContentMayor enlace1="8.png" enlace2="https://i.pinimg.com/736x/88/43/1a/88431a9ed1430dd5359e13002b24c824.jpg" />
+                    <ContentMayor enlace1="9.png" enlace2="https://occ-0-2668-116.1.nflxso.net/dnm/api/v6/mAcAr9TxZIVbINe88xb3Teg5_OA/AAAABZCEwS4vhhov7fT2Yze2kPra8IQSuljW05TGwgIKBkx09CTDJuPXvt1JnCSpRXkbxwXpuiHULanLs7bfDngCGNrPVSvV1BfjdeN01H8TmDaYJ8GKo1Ng9JBJ08v5IkmACCSb_WzcDoKwaVB0TR_wwvtU04u7f5-rez6MP0h5dtavr2VZ.jpg?r=f6b" />
+                    <ContentMayor enlace1="10.png" enlace2="https://occ-0-2668-116.1.nflxso.net/dnm/api/v6/mAcAr9TxZIVbINe88xb3Teg5_OA/AAAABepkkAy-LIw6uouQX-lIOXXlGBcBdqICOuu7mxN0bHEM9TLj0wF_zKk50zQgydG7WLtTJVIT7imcZGGi7Tl18QnwRbETcTnVwbEOmK2-jjO05ueH2lp_oglNSTXvrt4MhMYKKSj-mf4dbH8sGcmucse7i-2p-l0p5mC7__WrsfGMXMhXxicjL6fVfbWB7CdMVPyXFyxHDOFBAoqRu_oHvuJTETo1BNZ3nEHSrz2TTuvg5MNeIigYOwZdKkCd0-zdIhWE--OzGNsyy78z4v1ICO2H9nuTrpEbrjRQP_d1X2MmHYohX94.jpg?r=37d" />
+                  </div>
+                </div>
+              </div>
+              <button className="carousel-control-prev" type="button" data-bs-target="#top10" data-bs-slide="prev" style={{width:"3%"}}>
+                <span className="carousel-control-prev-icon" style={{marginLeft:"-125%", height:"20%"}} aria-hidden="true"></span>
+                <span className="visually-hidden">Anterior</span>
+              </button>
+              <button className="carousel-control-next" type="button" data-bs-target="#top10" data-bs-slide="next" style={{width:"5%"}}>
+                <span className="carousel-control-next-icon" style={{marginRight:"0%", height:"20%"}} aria-hidden="true"></span>
+                <span className="visually-hidden">Siguiente</span>
+              </button>
+            </div>
           </div>
           <div id="series" style={{marginTop:"5%"}}>
             <h1 className="tituloSeccion">Series</h1>
@@ -111,7 +146,7 @@ export default function Home() {
           </div>
           <div id="lista" style={{marginTop:"5%"}}>
             <h1 className="tituloSeccion">Mi lista</h1>
-            
+            <Catalog id="lista" enlaces={obtenerEnlaces()}/>
           </div>
           <div id="idiomas" style={{marginTop:"5%"}}>
             <h1 className="tituloSeccion">Explora por idiomas</h1>
