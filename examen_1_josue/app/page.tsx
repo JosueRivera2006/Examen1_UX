@@ -146,7 +146,7 @@ export default function Home() {
           </div>
           <div id="lista" style={{marginTop:"5%"}}>
             <h1 className="tituloSeccion">Mi lista</h1>
-            <Catalog id="lista" enlaces={obtenerEnlaces()}/>
+            <Catalog id="mi_lista" enlaces={obtenerEnlaces()}/>
           </div>
           <div id="idiomas" style={{marginTop:"5%"}}>
             <h1 className="tituloSeccion">Explora por idiomas</h1>

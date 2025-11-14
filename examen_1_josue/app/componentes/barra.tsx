@@ -1,6 +1,7 @@
+
 export default function BarraNavegacion() {
   return (
-    <div>
+    <div style={{width:"100%"}}>
       <nav className="navbar navbar-expand-lg fixed-top" style={{background:"linear-gradient(180deg, rgba(0, 0, 0, .7) 10%, transparent)", alignItems:"center", padding:"0.4%", width:"50%"}}>
         <div className="container-fluid d-flex align-items-center">
           <a className="navbar-brand me-5 fs-4" href="#">
@@ -29,17 +30,17 @@ export default function BarraNavegacion() {
           </div>
         </div>
       </nav>
-      <nav className="navbar navbar-expand-lg fixed-top" style={{justifyContent:"end", marginLeft:"15%"}}>
-        <div className="d-flex align-items-center" style={{marginRight:"3%"}}>
+      <nav className="navbar navbar-expand-lg fixed-top" style={{justifyContent:"end", marginLeft:"55%", width:"40%"}}>
+        <div className="d-flex align-items-center">
             <a className="navbar-brand" href="#">
-              <img src="/Lupa-01.png" style={{ width: "30px", marginRight:"1vw"}} alt="Buscar" />
+              <img src="/Lupa-01.png" style={{ width: "30px"}} alt="Buscar" />
             </a>
             <a className="nav-link text-white" href="#" style={{marginRight:"1vw"}}>Niños</a>
             <a className="navbar-brand" href="#">
-              <img src="/notificaciones.png" style={{ width: "30px", marginRight:"1vw"}} alt="Notificaciones" />
+              <img src="/notificaciones.png" style={{ width: "30px"}} alt="Notificaciones" />
             </a>
             <a className="navbar-brand" href="#">
-              <img src="/perfil.png" style={{ width: "30px", borderRadius: "5px"}} alt="Perfil"/>
+              <img src="/perfil.png" style={{width: "30px", borderRadius: "5px"}} alt="Perfil"/>
             </a>
             <a className="text-white text-decoration-none">
               ⏷
